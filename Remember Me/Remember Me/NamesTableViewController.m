@@ -21,14 +21,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //RLMRealm *realm = [RLMRealm defaultRealm];
-    
-    //RMName *newNameModel = [RMName new];
-    //newNameModel.name = @"Rachel";
-    
-    //[realm beginWriteTransaction];
-    //[realm addObject:newNameModel];
-    //[realm commitWriteTransaction];
+//    NSArray *newFakeDataNames = @[@"Ryan",
+//                                  @"Rachel",
+//                                  @"Adam",
+//                                  @"Justin",
+//                                  @"Ellen",
+//                                  @"Dave",
+//                                  @"Lori",
+//                                  @"Gary"];
+//    
+//    for (NSString *fakeName in newFakeDataNames) {
+//        RMName *newNameModel = [RMName new];
+//        newNameModel.name = fakeName;
+//        
+//        [[RLMRealm defaultRealm] beginWriteTransaction];
+//        [[RLMRealm defaultRealm] addObject:newNameModel];
+//        [[RLMRealm defaultRealm] commitWriteTransaction];
+//    }
     
     self.names = [[RMName allObjects] sortedResultsUsingProperty:@"name" ascending:YES];
 }
@@ -54,6 +63,62 @@
     return cell;
 }
 
+- (IBAction)buttonAdd:(id)sender {
+    UIAlertController *alertControllerAdd = [UIAlertController alertControllerWithTitle:@"Remember Somebody New"
+                                                                                message:@"Whom do you wish to remember?"
+                                                                         preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {}];
+    
+    UIAlertAction *addAction = [UIAlertAction actionWithTitle:@"Save" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        UITextField *name = alertControllerAdd.textFields[0];
+        
+        //NSLog(@"%@", name.text);
+        RMName *newNameModel = [RMName new];
+        newNameModel.name = name.text;
+        
+        [[RLMRealm defaultRealm] beginWriteTransaction];
+        [[RLMRealm defaultRealm] addObject:newNameModel];
+        [[RLMRealm defaultRealm] commitWriteTransaction];
+        
+        //[self.tableView reloadData];
+        
+        //Put this code where you want to reload your table view
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [UIView transitionWithView:self.tableView
+                              duration:0.5f
+                               options:UIViewAnimationOptionTransitionCrossDissolve
+                            animations:^(void) { [self.tableView reloadData]; }
+                            completion:nil];
+        });
+        
+    }];
+    
+    
+    [alertControllerAdd addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"";
+    }];
+    
+    [alertControllerAdd addAction:addAction];
+    [alertControllerAdd addAction:cancelAction];
+    
+    [self presentViewController:alertControllerAdd animated:YES completion:nil];
+}
+
+
+//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+//    // Do not remove. Needed for swipe to delete
+//}
+//
+//- (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+//        NSLog(@"row was deleted");
+//    }];
+//    
+//    deleteAction.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"iconTrash"]];
+//    
+//    return @[deleteAction];
+//}
 
 /*
 // Override to support conditional editing of the table view.

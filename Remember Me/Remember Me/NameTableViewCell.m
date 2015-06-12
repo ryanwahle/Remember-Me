@@ -14,7 +14,7 @@
 @property RMName *nameModel;
 
 @property (weak, nonatomic) UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UILabel *UILabelName;
+@property (weak, nonatomic) IBOutlet UILabel *nameUILabel;
 
 @end
 
@@ -24,7 +24,7 @@
     self.nameModel = nameModel;
     self.tableView = tableView;
     
-    self.UILabelName.text = self.nameModel.name;
+    self.nameUILabel.text = self.nameModel.name;
 }
 
 - (IBAction)buttonDelete:(id)sender {
@@ -34,7 +34,9 @@
     [[RLMRealm defaultRealm] deleteObject:self.nameModel];
     [[RLMRealm defaultRealm] commitWriteTransaction];
     
-    [self.tableView reloadData];
+    //[self.tableView reloadData];
+    [self.tableView deleteRowsAtIndexPaths:@[[self.tableView indexPathForCell:self]] withRowAnimation:UITableViewRowAnimationAutomatic];
+    //[self.tableView indexPathForCell:self];
 }
 
 @end

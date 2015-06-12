@@ -13,14 +13,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="TableViewCellName" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableViewCellName" id="uns-E7-ky5" customClass="NameTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="TableViewCellName" selectionStyle="none" indentationWidth="10" reuseIdentifier="TableViewCellName" id="uns-E7-ky5" customClass="NameTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uns-E7-ky5" id="W3N-4A-je4">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKF-ME-jGz">
                                             <rect key="frame" x="62" y="11" width="250" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -36,7 +36,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="UILabelName" destination="PKF-ME-jGz" id="PHO-oO-mBQ"/>
+                                    <outlet property="nameUILabel" destination="PKF-ME-jGz" id="4mp-GK-fhV"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -45,7 +45,14 @@
                             <outlet property="delegate" destination="GlH-oH-tTt" id="y6J-A1-ycc"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="vIn-2W-cvc"/>
+                    <navigationItem key="navigationItem" id="vIn-2W-cvc">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="qkm-ni-zUn">
+                            <color key="tintColor" red="0.30588235289999999" green="0.80392156859999997" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="buttonAdd:" destination="GlH-oH-tTt" id="rBR-tv-hEr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FOP-PN-eeZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

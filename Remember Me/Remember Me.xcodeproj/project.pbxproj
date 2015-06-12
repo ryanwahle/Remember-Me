@@ -19,6 +19,7 @@
 		683501B41B28D99600C28EF8 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 683501B31B28D99600C28EF8 /* libc++.dylib */; };
 		683501BB1B28DD0B00C28EF8 /* RMName.m in Sources */ = {isa = PBXBuildFile; fileRef = 683501BA1B28DD0B00C28EF8 /* RMName.m */; };
 		683501BE1B28E40200C28EF8 /* NameTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 683501BD1B28E40200C28EF8 /* NameTableViewCell.m */; };
+		683501C11B2922DB00C28EF8 /* RMRemember.m in Sources */ = {isa = PBXBuildFile; fileRef = 683501C01B2922DB00C28EF8 /* RMRemember.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		683501BA1B28DD0B00C28EF8 /* RMName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMName.m; sourceTree = "<group>"; };
 		683501BC1B28E40200C28EF8 /* NameTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameTableViewCell.h; sourceTree = "<group>"; };
 		683501BD1B28E40200C28EF8 /* NameTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameTableViewCell.m; sourceTree = "<group>"; };
+		683501BF1B2922DB00C28EF8 /* RMRemember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMRemember.h; sourceTree = "<group>"; };
+		683501C01B2922DB00C28EF8 /* RMRemember.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMRemember.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +158,8 @@
 			children = (
 				683501B91B28DD0B00C28EF8 /* RMName.h */,
 				683501BA1B28DD0B00C28EF8 /* RMName.m */,
+				683501BF1B2922DB00C28EF8 /* RMRemember.h */,
+				683501C01B2922DB00C28EF8 /* RMRemember.m */,
 			);
 			name = "Remember Me Model";
 			sourceTree = "<group>";
@@ -268,6 +273,7 @@
 				6835018A1B27A76400C28EF8 /* AppDelegate.m in Sources */,
 				683501AF1B28B39900C28EF8 /* NamesTableViewController.m in Sources */,
 				683501BE1B28E40200C28EF8 /* NameTableViewCell.m in Sources */,
+				683501C11B2922DB00C28EF8 /* RMRemember.m in Sources */,
 				683501871B27A76400C28EF8 /* main.m in Sources */,
 				683501BB1B28DD0B00C28EF8 /* RMName.m in Sources */,
 			);
