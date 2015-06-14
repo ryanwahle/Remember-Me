@@ -20,6 +20,8 @@
 		683501BB1B28DD0B00C28EF8 /* RMName.m in Sources */ = {isa = PBXBuildFile; fileRef = 683501BA1B28DD0B00C28EF8 /* RMName.m */; };
 		683501BE1B28E40200C28EF8 /* NameTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 683501BD1B28E40200C28EF8 /* NameTableViewCell.m */; };
 		683501C11B2922DB00C28EF8 /* RMRemember.m in Sources */ = {isa = PBXBuildFile; fileRef = 683501C01B2922DB00C28EF8 /* RMRemember.m */; };
+		68A84E851B2E3079008EE257 /* RememberTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A84E841B2E3079008EE257 /* RememberTableViewCell.m */; };
+		68A84E881B2E3095008EE257 /* RemembersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A84E871B2E3095008EE257 /* RemembersTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,10 @@
 		683501BD1B28E40200C28EF8 /* NameTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameTableViewCell.m; sourceTree = "<group>"; };
 		683501BF1B2922DB00C28EF8 /* RMRemember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMRemember.h; sourceTree = "<group>"; };
 		683501C01B2922DB00C28EF8 /* RMRemember.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMRemember.m; sourceTree = "<group>"; };
+		68A84E831B2E3079008EE257 /* RememberTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RememberTableViewCell.h; sourceTree = "<group>"; };
+		68A84E841B2E3079008EE257 /* RememberTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RememberTableViewCell.m; sourceTree = "<group>"; };
+		68A84E861B2E3095008EE257 /* RemembersTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemembersTableViewController.h; sourceTree = "<group>"; };
+		68A84E871B2E3095008EE257 /* RemembersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemembersTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +111,7 @@
 			children = (
 				683501B51B28DB5B00C28EF8 /* Remember Me Model */,
 				683501B01B28D6D100C28EF8 /* Names View */,
+				68A84E821B2E301C008EE257 /* Remembers View */,
 				683501AA1B27A84800C28EF8 /* Remember Me.entitlements */,
 				683501881B27A76400C28EF8 /* AppDelegate.h */,
 				683501891B27A76400C28EF8 /* AppDelegate.m */,
@@ -162,6 +169,17 @@
 				683501C01B2922DB00C28EF8 /* RMRemember.m */,
 			);
 			name = "Remember Me Model";
+			sourceTree = "<group>";
+		};
+		68A84E821B2E301C008EE257 /* Remembers View */ = {
+			isa = PBXGroup;
+			children = (
+				68A84E831B2E3079008EE257 /* RememberTableViewCell.h */,
+				68A84E841B2E3079008EE257 /* RememberTableViewCell.m */,
+				68A84E861B2E3095008EE257 /* RemembersTableViewController.h */,
+				68A84E871B2E3095008EE257 /* RemembersTableViewController.m */,
+			);
+			name = "Remembers View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,9 +290,11 @@
 			files = (
 				6835018A1B27A76400C28EF8 /* AppDelegate.m in Sources */,
 				683501AF1B28B39900C28EF8 /* NamesTableViewController.m in Sources */,
+				68A84E881B2E3095008EE257 /* RemembersTableViewController.m in Sources */,
 				683501BE1B28E40200C28EF8 /* NameTableViewCell.m in Sources */,
 				683501C11B2922DB00C28EF8 /* RMRemember.m in Sources */,
 				683501871B27A76400C28EF8 /* main.m in Sources */,
+				68A84E851B2E3079008EE257 /* RememberTableViewCell.m in Sources */,
 				683501BB1B28DD0B00C28EF8 /* RMName.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -488,6 +508,7 @@
 				683501A61B27A76400C28EF8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		683501A71B27A76400C28EF8 /* Build configuration list for PBXNativeTarget "Remember MeTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +517,7 @@
 				683501A91B27A76400C28EF8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -28,15 +28,11 @@
 }
 
 - (IBAction)buttonDelete:(id)sender {
-    NSLog(@"%@ deleted and tableview reloaded", self.nameModel.name);
-    
     [[RLMRealm defaultRealm] beginWriteTransaction];
     [[RLMRealm defaultRealm] deleteObject:self.nameModel];
     [[RLMRealm defaultRealm] commitWriteTransaction];
     
-    //[self.tableView reloadData];
     [self.tableView deleteRowsAtIndexPaths:@[[self.tableView indexPathForCell:self]] withRowAnimation:UITableViewRowAnimationAutomatic];
-    //[self.tableView indexPathForCell:self];
 }
 
 @end
