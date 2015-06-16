@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RMRemember.h"
 
 @interface RememberTableViewCell : UITableViewCell
+
+- (void)updateCellWithModel:(RMRemember *)rememberModel andTableView:(UITableView *)tableView;
 
 @end

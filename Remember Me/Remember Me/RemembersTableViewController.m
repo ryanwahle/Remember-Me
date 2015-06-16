@@ -7,94 +7,80 @@
 //
 
 #import "RemembersTableViewController.h"
-
-@interface RemembersTableViewController ()
-
-@end
+#import "RememberTableViewCell.h"
 
 @implementation RemembersTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return self.nameModel.remembers.count;
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    RememberTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TableViewCellRemember" forIndexPath:indexPath];
     
-    // Configure the cell...
+    [cell updateCellWithModel:self.nameModel.remembers[indexPath.row] andTableView:tableView];
     
     return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+
+- (IBAction)buttonAdd:(id)sender {
+    UIAlertController *alertControllerAdd = [UIAlertController alertControllerWithTitle:@"Remember Something New"
+                                                                                message:@"What do you wish to remember?"
+                                                                         preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {}];
+    
+    UIAlertAction *addAction = [UIAlertAction actionWithTitle:@"Save" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        UITextField *remember = alertControllerAdd.textFields[0];
+        UITextField *information = alertControllerAdd.textFields[1];
+        
+        RMRemember *newRememberModel = [RMRemember new];
+        newRememberModel.remember = remember.text;
+        newRememberModel.information = information.text;
+        
+        [[RLMRealm defaultRealm] beginWriteTransaction];
+        [self.nameModel.remembers addObject:newRememberModel];
+        [[RLMRealm defaultRealm] commitWriteTransaction];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [UIView transitionWithView:self.tableView
+                              duration:0.5f
+                               options:UIViewAnimationOptionTransitionCrossDissolve
+                            animations:^(void) { [self.tableView reloadData]; }
+                            completion:nil];
+        });
+        
+    }];
+    
+    
+    [alertControllerAdd addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"Remember What?";
+    }];
+    
+    [alertControllerAdd addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"The thing you need to remember . . .";
+    }];
+
+    
+    [alertControllerAdd addAction:addAction];
+    [alertControllerAdd addAction:cancelAction];
+    
+    [self presentViewController:alertControllerAdd animated:YES completion:nil];
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

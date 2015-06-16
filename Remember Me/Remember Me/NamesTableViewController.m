@@ -11,9 +11,12 @@
 #import <Realm/Realm.h>
 #import "RMName.h"
 #import "NameTableViewCell.h"
+#import "RemembersTableViewController.h"
 
 @interface NamesTableViewController ()
+
 @property RLMResults *names;
+
 @end
 
 @implementation NamesTableViewController
@@ -83,6 +86,13 @@
     [self presentViewController:alertControllerAdd animated:YES completion:nil];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"SegueToRemembers"]) {
+        RemembersTableViewController *remembersViewController = [segue destinationViewController];
+        
+        remembersViewController.nameModel = self.names[[self.tableView indexPathForSelectedRow].row];
+    }
+}
 
 //- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
 //    // Do not remove. Needed for swipe to delete

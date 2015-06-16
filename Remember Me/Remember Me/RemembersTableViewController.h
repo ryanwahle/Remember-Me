@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RMName.h"
 
 @interface RemembersTableViewController : UITableViewController
+
+@property RMName *nameModel;
 
 @end

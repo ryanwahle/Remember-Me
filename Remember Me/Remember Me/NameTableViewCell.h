@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@class RMName;
+#import "RMName.h"
 
 @interface NameTableViewCell : UITableViewCell
 

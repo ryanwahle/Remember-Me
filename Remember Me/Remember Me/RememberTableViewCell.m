@@ -8,16 +8,22 @@
 
 #import "RememberTableViewCell.h"
 
+@interface RememberTableViewCell ()
+
+@property RMRemember *rememberModel;
+
+@property (weak, nonatomic) UITableView *tableView;
+
+@end
+
 @implementation RememberTableViewCell
 
-- (void)awakeFromNib {
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+- (void)updateCellWithModel:(RMRemember *)rememberModel andTableView:(UITableView *)tableView {
+    self.rememberModel = rememberModel;
+    self.tableView = tableView;
+    
+    self.textLabel.text = self.rememberModel.remember;
+    self.detailTextLabel.text = self.rememberModel.information;
 }
 
 @end

@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="TableViewCellName" selectionStyle="none" indentationWidth="10" reuseIdentifier="TableViewCellName" id="uns-E7-ky5" customClass="NameTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="TableViewCellName" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TableViewCellName" id="uns-E7-ky5" customClass="NameTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uns-E7-ky5" id="W3N-4A-je4">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -37,7 +37,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="nameUILabel" destination="PKF-ME-jGz" id="4mp-GK-fhV"/>
-                                    <segue destination="5To-FR-1q0" kind="show" id="kyA-S5-qPS"/>
+                                    <segue destination="5To-FR-1q0" kind="show" identifier="SegueToRemembers" id="kyA-S5-qPS"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -94,7 +94,14 @@
                             <outlet property="delegate" destination="5To-FR-1q0" id="Hh4-SR-H7x"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Wee-CE-fuw"/>
+                    <navigationItem key="navigationItem" id="Wee-CE-fuw">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="w5V-Hm-wAE">
+                            <color key="tintColor" red="0.30588235289999999" green="0.80392156859999997" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="buttonAdd:" destination="5To-FR-1q0" id="Naf-Dc-lS6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="icN-hY-gkl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
